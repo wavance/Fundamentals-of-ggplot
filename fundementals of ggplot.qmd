@@ -1,0 +1,120 @@
+---
+title: "Untitled"
+format:
+  pdf: default
+  gfm: default
+editor: visual
+---
+
+```{r}
+ci_np <- read.csv("ci_np.csv")
+
+head(ci_np)
+```
+
+```{r}
+ggplot(data = ci_np)
+```
+
+```{r}
+ggplot(data = ci_np, mapping = aes(x = year, y = visitors))
+```
+
+```{r}
+ggplot(data = ci_np, mapping = aes(x = year, y = visitors)) +
+  geom_point()
+```
+
+```{r}
+ggplot(data = ci_np, mapping = aes(x = year, y = visitors)) +
+  geom_col()
+```
+
+```{r}
+ggplot(data = ci_np, mapping = aes(x = year, y = visitors)) +
+  geom_point() +
+  geom_line()
+```
+
+```{r}
+ggplot(data = ci_np, mapping = aes(x = year, y = visitors)) +
+  geom_point() +
+  geom_smooth(method = 'lm',formula = 'y ~ x')
+```
+
+```{r}
+ggplot(data = ci_np, mapping = aes(x = visitors)) +
+  geom_histogram()
+```
+
+```{r}
+ggplot(data = ci_np, mapping = aes(x = visitors)) +
+  geom_density()
+```
+
+```{r}
+ggplot(data = ci_np, mapping = aes(x = year, y = visitors)) +
+  geom_point(shape = 8, color = "blue")
+```
+
+```{r}
+ggplot(ci_np, aes(x = year, y = visitors)) +
+  geom_point(shape = 8, color = "blue")
+```
+
+```{r}
+ggplot(data = ci_np, mapping = aes(x = year, y = visitors)) +
+  geom_point() +
+  geom_smooth(method = 'lm',formula = 'y ~ x',linetype = 2, color = 'red')
+```
+
+```{r}
+ggplot(ci_np, aes(x = year, y = visitors)) +
+  geom_point(aes(size = visitors))
+```
+
+```{r}
+ggplot(ci_np, aes(x = year, y = visitors)) +
+  geom_point(aes(size = visitors, color = visitors))
+```
+
+```{r}
+ca_np <- read.csv("ca_np.csv")
+head(ca_np)
+```
+
+```{r}
+# Fetch the column only - not informative! Too many values!
+ca_np$park_name
+```
+
+```{r}
+ggplot(data = ca_np, mapping = aes(x = year, y = visitors)) +
+  geom_point()
+```
+
+```{r}
+ggplot(data = ca_np, mapping = aes(x = year, y = visitors)) +
+  geom_point(aes(color = park_name))
+```
+
+```{r}
+ggplot(data = ca_np, mapping = aes(x = year, y = visitors)) +
+  geom_point(aes(color = park_name)) +
+  facet_wrap(park_name ~ .)
+```
+
+```{r}
+ggplot(data = ca_np, mapping = aes(x = year, y = visitors)) +
+  geom_point(aes(color = park_name)) +
+  facet_wrap(park_name ~ ., scales = "free_y")
+```
+
+# Abalone Landings
+
+## Q6
+
+```{r}
+ab <- read.csv("abalone_landings.csv")
+head(ab)
+```
